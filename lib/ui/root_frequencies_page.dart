@@ -6,9 +6,9 @@ import 'package:neom_commons/ui/theme/app_color.dart';
 import 'package:neom_commons/ui/theme/app_theme.dart';
 import 'package:neom_commons/ui/widgets/appbar_child.dart';
 import 'package:neom_commons/utils/constants/app_page_id_constants.dart';
-import 'package:neom_commons/utils/constants/app_translation_constants.dart';
 import 'package:neom_core/utils/constants/app_route_constants.dart';
 
+import '../utils/constants/frequency_translation_constants.dart';
 import 'frequency_controller.dart';
 import 'widgets/frequency_widgets.dart';
 
@@ -22,7 +22,7 @@ class RootFrequenciesPage extends StatelessWidget {
       init: FrequencyController(),
       builder: (_) => Scaffold(
         backgroundColor: AppColor.getMain(),
-        appBar: AppBarChild(title: AppTranslationConstants.rootFrequencies.tr),
+        appBar: AppBarChild(title: FrequencyTranslationConstants.rootFrequencies.tr),
         body: _.isLoading.value ? const Center(child: CircularProgressIndicator())
             : Container(
           decoration: AppTheme.appBoxDecoration,
@@ -45,7 +45,7 @@ class RootFrequenciesPage extends StatelessWidget {
                 child: AnimatedTextKit(
                   repeatForever: true,
                   animatedTexts: [
-                    FlickerAnimatedText("${AppTranslationConstants.exploreFrequencies.tr}  "),
+                    FlickerAnimatedText("${FrequencyTranslationConstants.exploreFrequencies.tr}  "),
                   ],
                   onTap: () => {Get.toNamed(AppRouteConstants.frequency)},
                 ),

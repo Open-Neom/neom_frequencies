@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:neom_commons/ui/theme/app_theme.dart';
 import 'package:neom_commons/ui/widgets/appbar_child.dart';
 import 'package:neom_commons/utils/constants/app_page_id_constants.dart';
-import 'package:neom_commons/utils/constants/app_translation_constants.dart';
+import '../utils/constants/frequency_translation_constants.dart';
 import 'frequency_controller.dart';
 import 'widgets/frequency_widgets.dart';
 
@@ -18,7 +18,7 @@ class FrequencyPage extends StatelessWidget {
       builder: (_) => Scaffold(
         appBar:  PreferredSize(
           preferredSize: const Size.fromHeight(50),
-          child: AppBarChild(title: AppTranslationConstants.frequencySelection.tr)),
+          child: AppBarChild(title: FrequencyTranslationConstants.frequencySelection.tr)),
         body: Container(
           decoration: AppTheme.appBoxDecoration,
           child: Column(
