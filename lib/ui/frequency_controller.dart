@@ -5,17 +5,17 @@ import 'package:get/get.dart';
 import 'package:neom_commons/utils/constants/app_page_id_constants.dart';
 import 'package:neom_core/app_config.dart';
 import 'package:neom_core/data/firestore/frequency_firestore.dart';
-import 'package:neom_core/data/implementations/app_drawer_controller.dart';
-import 'package:neom_core/data/implementations/user_controller.dart';
 import 'package:neom_core/domain/model/app_profile.dart';
 import 'package:neom_core/domain/model/neom/neom_frequency.dart';
+import 'package:neom_core/domain/use_cases/app_drawer_service.dart';
 import 'package:neom_core/domain/use_cases/frequency_service.dart';
+import 'package:neom_core/domain/use_cases/user_service.dart';
 import 'package:neom_core/utils/constants/data_assets.dart';
 
 class FrequencyController extends GetxController implements FrequencyService {
 
   
-  final userController = Get.find<UserController>();
+  final userServiceImpl = Get.isRegistered<UserService>() ? Get.find<UserService>() : null;
 
   final RxMap<String, NeomFrequency> _frequencies = <String, NeomFrequency>{}.obs;
   final RxMap<String, NeomFrequency> favFrequencies = <String,NeomFrequency>{}.obs;
@@ -30,13 +30,16 @@ class FrequencyController extends GetxController implements FrequencyService {
     super.onInit();
     AppConfig.logger.d("Frequencies Init");
 
-    profile = userController.profile;
+    if(userServiceImpl != null) {
+      profile = userServiceImpl!.profile;
+    }
+
 
     try {
       await loadFrequencies();
 
-      if(userController.profile.frequencies != null) {
-        favFrequencies.value = userController.profile.frequencies!;
+      if(profile.frequencies != null) {
+        favFrequencies.value = profile.frequencies!;
       }
 
       sortFavFrequencies();
@@ -48,12 +51,14 @@ class FrequencyController extends GetxController implements FrequencyService {
 
   @override
   Future<void> loadFrequencies() async {
-    AppConfig.logger.d("");
+    AppConfig.logger.d("Loading Frequencies");
 
-    profile.frequencies = await FrequencyFirestore().retrieveFrequencies(profile.id);
+    if(profile.id.isNotEmpty) {
+      profile.frequencies = await FrequencyFirestore().retrieveFrequencies(profile.id);
+    }
+
     String frequencyStr = await rootBundle.loadString(DataAssets.frequenciesJsonPath);
     List<dynamic> frequencyJSON = jsonDecode(frequencyStr);
-
     for (var freqJSON in frequencyJSON) {
       NeomFrequency freq = NeomFrequency.fromAssetJSON(freqJSON);
       _frequencies[freq.id] = freq;
@@ -114,7 +119,7 @@ class FrequencyController extends GetxController implements FrequencyService {
       frequencyId: frequency.id, prevInstrId:  prevInstrId);
 
     profile.frequencies![frequency.id] = frequency;
-    Get.find<AppDrawerController>().updateProfile(profile);
+    Get.find<AppDrawerService>().updateProfile(profile);
     update([AppPageIdConstants.frequencies]);
 
   }

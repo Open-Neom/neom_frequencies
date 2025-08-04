@@ -8,7 +8,10 @@ import 'frequency_controller.dart';
 import 'widgets/frequency_widgets.dart';
 
 class FrequencyPage extends StatelessWidget {
-  const FrequencyPage({super.key});
+
+  final bool showAppBar;
+
+  const FrequencyPage({super.key, this.showAppBar = true});
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +19,9 @@ class FrequencyPage extends StatelessWidget {
       id: AppPageIdConstants.frequencies,
       init: FrequencyController(),
       builder: (_) => Scaffold(
-        appBar:  PreferredSize(
+        appBar:  showAppBar ? PreferredSize(
           preferredSize: const Size.fromHeight(50),
-          child: AppBarChild(title: FrequencyTranslationConstants.frequencySelection.tr)),
+          child: AppBarChild(title: FrequencyTranslationConstants.frequencySelection.tr)) : null,
         body: Container(
           decoration: AppTheme.appBoxDecoration,
           child: Column(
