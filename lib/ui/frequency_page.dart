@@ -18,7 +18,7 @@ class FrequencyPage extends StatelessWidget {
     return GetBuilder<FrequencyController>(
       id: AppPageIdConstants.frequencies,
       init: FrequencyController(),
-      builder: (_) => Scaffold(
+      builder: (frequencyController) => Scaffold(
         appBar:  showAppBar ? PreferredSize(
           preferredSize: const Size.fromHeight(50),
           child: AppBarChild(title: FrequencyTranslationConstants.frequencySelection.tr)) : null,
@@ -27,7 +27,7 @@ class FrequencyPage extends StatelessWidget {
           child: Column(
               children: <Widget>[
                 Obx(()=> Expanded(
-                  child: buildFrequencyList(context, _),
+                  child: buildFrequencyList(context, frequencyController),
                 ),),
               ]
           ),

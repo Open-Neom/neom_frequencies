@@ -1,4 +1,4 @@
-## 1.2.0 - Architectural Changes and Major Refactoring:
+## 1.2.0-dev - Architectural Changes and Major Refactoring:
 All notable changes to the `neom_frequencies` module will be documented in this file.
 
 ### Added
