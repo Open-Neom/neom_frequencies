@@ -20,16 +20,16 @@ class RootFrequenciesPage extends StatelessWidget {
     return GetBuilder<FrequencyController>(
       id: AppPageIdConstants.frequencies,
       init: FrequencyController(),
-      builder: (frequencyController) => Scaffold(
+      builder: (controller) => Scaffold(
         backgroundColor: AppColor.getMain(),
         appBar: AppBarChild(title: FrequencyTranslationConstants.rootFrequencies.tr),
-        body: frequencyController.isLoading.value ? const Center(child: CircularProgressIndicator())
+        body: controller.isLoading.value ? const Center(child: CircularProgressIndicator())
             : Container(
           decoration: AppTheme.appBoxDecoration,
           child: Column(
               children: <Widget>[
                 Expanded(
-                  child: buildFreqFavList(context, frequencyController),
+                  child: buildFreqFavList(context, controller),
                 ),
               ]
           ),

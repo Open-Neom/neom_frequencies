@@ -1,6 +1,6 @@
 name: neom_frequencies
 description: Frequencies Details for Open Neom.
-version: 1.2.0-dev
+version: 1.3.0-dev
 homepage: https://github.com/Open-Neom/neom_frequencies
 
 environment:
