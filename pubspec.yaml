@@ -11,8 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  neom_core: ^1.4.1-dev
-  neom_commons: ^1.4.1-dev
+  neom_core: ^2.0.0-dev
+  neom_commons: ^2.0.0-dev
 
   # TRANSITIVE DEPENDENCIES FOR PUB.DEV PUBLISHING
   get: ^5.0.0-release-candidate-9.3.2
