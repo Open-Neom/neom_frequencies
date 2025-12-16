@@ -8,7 +8,6 @@ class FrequencyTranslationConstants {
   static const String frequencyPreferences = 'frequencyPreferences';
   static const String frequencyRemoved = 'frequencyRemoved';
   static const String frequencySelection = 'frequencySelection';
-  static const String mainFrequency = 'mainFrequency';
   static const String rootFrequencies = 'rootFrequencies';
   static const String selectedAsMainFrequency = 'selectedAsMainFrequency';
 }
