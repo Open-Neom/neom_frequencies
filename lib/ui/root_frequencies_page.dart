@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:sint/sint.dart';
 import 'package:neom_commons/app_flavour.dart';
 import 'package:neom_commons/ui/theme/app_color.dart';
 import 'package:neom_commons/ui/theme/app_theme.dart';
@@ -17,7 +17,7 @@ class RootFrequenciesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<FrequencyController>(
+    return SintBuilder<FrequencyController>(
       id: AppPageIdConstants.frequencies,
       init: FrequencyController(),
       builder: (controller) => Scaffold(
@@ -47,7 +47,7 @@ class RootFrequenciesPage extends StatelessWidget {
                   animatedTexts: [
                     FlickerAnimatedText("${FrequencyTranslationConstants.exploreFrequencies.tr}  "),
                   ],
-                  onTap: () => {Get.toNamed(AppRouteConstants.frequency)},
+                  onTap: () => {Sint.toNamed(AppRouteConstants.frequency)},
                 ),
               ),
             ),
@@ -55,7 +55,7 @@ class RootFrequenciesPage extends StatelessWidget {
               heroTag: AppPageIdConstants.spotifySync,
               elevation: AppTheme.elevationFAB,
               child: Row(mainAxisAlignment:MainAxisAlignment.center,children: [Icon(AppFlavour.getAppItemIcon()), const Icon(Icons.navigate_next,size: 20,)],),
-              onPressed: () => {Get.toNamed(AppRouteConstants.frequency)},
+              onPressed: () => {Sint.toNamed(AppRouteConstants.frequency)},
             ),
           ],
         )

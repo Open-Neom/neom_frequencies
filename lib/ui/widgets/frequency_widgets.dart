@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:sint/sint.dart';
 import 'package:neom_commons/utils/app_alerts.dart';
 import 'package:neom_commons/utils/constants/translations/app_translation_constants.dart';
 import 'package:neom_core/domain/model/neom/neom_frequency.dart';
@@ -19,13 +19,11 @@ Widget buildFreqFavList(BuildContext context, FrequencyController frequencyContr
           title: Text("${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz"),
           subtitle: Text(frequency.description, textAlign: TextAlign.justify,),
           trailing: IconButton(
-              icon: const Icon(
-                  CupertinoIcons.forward
-              ),
+              icon: const Icon(Icons.arrow_forward_ios),
               padding: EdgeInsets.zero,
               constraints: const BoxConstraints(),
               onPressed: () {
-                Get.toNamed(AppRouteConstants.generator,  arguments: [frequency]);
+                Sint.toNamed(AppRouteConstants.generator,  arguments: [frequency]);
               }),
         onLongPress: () {
           frequencyController.makeMainFrequency(frequency);
@@ -34,7 +32,7 @@ Widget buildFreqFavList(BuildContext context, FrequencyController frequencyContr
               message: "${frequency.name.tr} ${FrequencyTranslationConstants.selectedAsMainFrequency.tr}"
           );
         },
-        onTap: () => Get.toNamed(AppRouteConstants.generator,  arguments: [frequency]),
+        onTap: () => Sint.toNamed(AppRouteConstants.generator,  arguments: [frequency]),
       );
     },
   );
@@ -93,7 +91,7 @@ Widget buildFrequencyList(BuildContext context, FrequencyController frequencyCon
                 }
               }
           ),
-          onTap: () => Get.toNamed(AppRouteConstants.generator,  arguments: [frequency]),
+          onTap: () => Sint.toNamed(AppRouteConstants.generator,  arguments: [frequency]),
       );
     },
   );

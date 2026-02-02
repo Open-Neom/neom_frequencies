@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
+import 'package:sint/sint.dart';
 import 'package:neom_commons/utils/constants/app_page_id_constants.dart';
 import 'package:neom_core/app_config.dart';
 import 'package:neom_core/data/firestore/frequency_firestore.dart';
@@ -12,10 +12,9 @@ import 'package:neom_core/domain/use_cases/frequency_service.dart';
 import 'package:neom_core/domain/use_cases/user_service.dart';
 import 'package:neom_core/utils/constants/data_assets.dart';
 
-class FrequencyController extends GetxController implements FrequencyService {
+class FrequencyController extends SintController implements FrequencyService {
 
-  
-  final userServiceImpl = Get.isRegistered<UserService>() ? Get.find<UserService>() : null;
+  final userServiceImpl = Sint.isRegistered<UserService>() ? Sint.find<UserService>() : null;
 
   final RxMap<String, NeomFrequency> _frequencies = <String, NeomFrequency>{}.obs;
   final RxMap<String, NeomFrequency> favFrequencies = <String,NeomFrequency>{}.obs;
@@ -119,7 +118,7 @@ class FrequencyController extends GetxController implements FrequencyService {
       frequencyId: frequency.id, prevInstrId:  prevInstrId);
 
     profile.frequencies![frequency.id] = frequency;
-    Get.find<AppDrawerService>().updateProfile(profile);
+    Sint.find<AppDrawerService>().updateProfile(profile);
     update([AppPageIdConstants.frequencies]);
 
   }

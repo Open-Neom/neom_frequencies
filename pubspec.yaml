@@ -1,6 +1,6 @@
 name: neom_frequencies
 description: Frequencies Details for Open Neom.
-version: 1.3.1-dev
+version: 2.0.0
 homepage: https://github.com/Open-Neom/neom_frequencies
 
 environment:
@@ -14,13 +14,13 @@ dependencies:
   neom_core: ^2.0.0-dev
   neom_commons: ^2.0.0-dev
 
-  # TRANSITIVE DEPENDENCIES FOR PUB.DEV PUBLISHING
-  get: ^5.0.0-release-candidate-9.3.2
-  animated_text_kit: ^4.2.3
+#  # TRANSITIVE DEPENDENCIES FOR PUB.DEV PUBLISHING
+#  get: ^5.0.0-release-candidate-9.3.2
+#  animated_text_kit: ^4.2.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
