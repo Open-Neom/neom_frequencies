@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sint/sint.dart';
 import 'package:neom_commons/utils/app_alerts.dart';
 import 'package:neom_commons/utils/constants/translations/app_translation_constants.dart';
 import 'package:neom_core/domain/model/neom/neom_frequency.dart';
 import 'package:neom_core/utils/constants/app_route_constants.dart';
+import 'package:sint/sint.dart';
+
 import '../../utils/constants/frequency_translation_constants.dart';
 import '../frequency_controller.dart';
 
@@ -12,7 +12,7 @@ Widget buildFreqFavList(BuildContext context, FrequencyController frequencyContr
   return ListView.separated(
     itemCount: frequencyController.favFrequencies.length,
     separatorBuilder:  (context, index) => const Divider(),
-    itemBuilder: (__, index) {
+    itemBuilder: (_, index) {
       NeomFrequency frequency = frequencyController.favFrequencies.values.elementAt(index);
 
       return ListTile(
@@ -42,7 +42,7 @@ Widget buildFrequencyList(BuildContext context, FrequencyController frequencyCon
   return ListView.separated(
     itemCount: frequencyController.sortedFrequencies.length,
     separatorBuilder:  (context, index) => const Divider(),
-    itemBuilder: (__, index) {
+    itemBuilder: (_, index) {
       NeomFrequency frequency = frequencyController.sortedFrequencies.values.elementAt(index);
       if (frequencyController.favFrequencies[frequency.id] != null) {
         frequency = frequencyController.favFrequencies[frequency.id]!;
