@@ -21,7 +21,7 @@ class RootFrequenciesPage extends StatelessWidget {
       id: AppPageIdConstants.frequencies,
       init: FrequencyController(),
       builder: (controller) => Scaffold(
-        backgroundColor: AppColor.getMain(),
+        backgroundColor: AppColor.scaffold,
         appBar: AppBarChild(title: FrequencyTranslationConstants.rootFrequencies.tr),
         body: controller.isLoading.value ? const Center(child: CircularProgressIndicator())
             : Container(
