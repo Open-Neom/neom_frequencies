@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:neom_commons/ui/theme/app_theme.dart';
-import 'package:neom_commons/ui/widgets/appbar_child.dart';
 import 'package:neom_commons/utils/constants/app_page_id_constants.dart';
 import 'package:sint/sint.dart';
 
@@ -22,7 +21,7 @@ class FrequencyPage extends StatelessWidget {
       builder: (controller) => Scaffold(
         appBar:  showAppBar ? PreferredSize(
           preferredSize: const Size.fromHeight(50),
-          child: AppBarChild(title: FrequencyTranslationConstants.frequencySelection.tr)) : null,
+          child: SintAppBar(title: FrequencyTranslationConstants.frequencySelection.tr)) : null,
         body: Container(
           decoration: AppTheme.appBoxDecoration,
           child: Column(
