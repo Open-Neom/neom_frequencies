@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.0-unreleased] - 2026-07-21
+- Refactor and compatibility updates for frequency_controller.dart.
+
 ## Unreleased - System updates
 - Actualizaciones de estabilidad y compatibilidad.
 

@@ -114,7 +114,7 @@ class FrequencyController extends SintController implements FrequencyService {
       }
     }
     frequency.isMain = true;
-    favFrequencies.update(frequency.name, (frequency) => frequency);
+    favFrequencies.update(frequency.id, (v) => frequency);
     FrequencyFirestore().updateMainFrequency(profileId: profile.id,
       frequencyId: frequency.id, prevInstrId:  prevInstrId);
 
