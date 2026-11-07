@@ -1,7 +1,11 @@
 name: neom_frequencies
 description: Frequencies Details for Open Neom.
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/Open-Neom/neom_frequencies
+repository: https://github.com/Open-Neom/neom_frequencies
+issue_tracker: https://github.com/Open-Neom/neom_frequencies/issues
+funding:
+  - https://github.com/sponsors/Open-Neom
 
 environment:
   sdk: ">=3.8.0 <4.0.0"
@@ -13,7 +17,7 @@ dependencies:
 
   neom_core: ^2.0.0
   neom_commons: ^2.0.0
-  sint: ^1.3.0
+  sint: ">=1.3.0 <3.0.0"
 
 #  # TRANSITIVE DEPENDENCIES FOR PUB.DEV PUBLISHING
   animated_text_kit: ^4.3.0

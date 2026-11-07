@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.1] - 2026-11-07
+- Support `sint` `2.x` (`>=1.3.0 <3.0.0`), refactor `frequency_controller.dart`, and add `@Open-Neom` GitHub Sponsors `funding` metadata.
+
 ## [2.0.0-unreleased] - 2026-07-21
 - Refactor and compatibility updates for frequency_controller.dart.
 
