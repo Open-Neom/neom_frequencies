@@ -25,11 +25,11 @@ class FrequencyPage extends StatelessWidget {
         body: Container(
           decoration: AppTheme.appBoxDecoration,
           child: Column(
-              children: <Widget>[
-                Obx(()=> Expanded(
-                  child: buildFrequencyList(context, controller),
-                ),),
-              ]
+            children: <Widget>[
+              Expanded(
+                child: Obx(() => buildFrequencyList(context, controller)),
+              ),
+            ],
           ),
         ),
       ),

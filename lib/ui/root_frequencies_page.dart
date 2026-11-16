@@ -25,12 +25,17 @@ class RootFrequenciesPage extends StatelessWidget {
         body: controller.isLoading.value ? const Center(child: CircularProgressIndicator())
             : Container(
           decoration: AppTheme.appBoxDecoration,
-          child: Column(
-              children: <Widget>[
-                Expanded(
-                  child: buildFreqFavList(context, controller),
-                ),
-              ]
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 960),
+              child: Column(
+                children: <Widget>[
+                  Expanded(
+                    child: buildFreqFavList(context, controller),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
         floatingActionButton: Row(

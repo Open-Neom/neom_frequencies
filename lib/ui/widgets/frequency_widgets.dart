@@ -58,6 +58,7 @@ Widget buildFrequencyList(BuildContext context, FrequencyController frequencyCon
                 if(frequency.isFav) {
                   if (frequencyController.favFrequencies.length > 1) {
                     await frequencyController.removeFrequency(index);
+                    if (!context.mounted) return;
                     if(frequencyController.favFrequencies.containsKey(frequency.id)) {
                       AppAlerts.showAlert(context,
                           title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
@@ -77,6 +78,7 @@ Widget buildFrequencyList(BuildContext context, FrequencyController frequencyCon
                   }
                 } else {
                   await frequencyController.addFrequency(index);
+                  if (!context.mounted) return;
                   if(frequencyController.favFrequencies.containsKey(frequency.id)) {
                     AppAlerts.showAlert(context,
                         title: "${AppTranslationConstants.frequency.tr} ${frequency.frequency.toString()} Hz",
