@@ -17,7 +17,7 @@ dependencies:
 
   neom_core: ^2.0.0
   neom_commons: ^2.0.0
-  sint: ^2.0.2
+  sint: ^2.3.0
 
 
 
